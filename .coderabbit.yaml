@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: "en-US"
+reviews:
+  profile: "chill"
+  auto_review:
+    enabled: true
+  path_instructions:
+    - path: "src/**/*.cs"
+      instructions: |
+        This is a multi-tenant ASP.NET Core API (.NET 9, EF Core, PostgreSQL).
+        Focus on: tenant isolation leaks (queries bypassing the global query filter,
+        IgnoreQueryFilters, raw SQL), authorization gaps (endpoints missing policies),
+        security (secrets, token handling, input validation), async/await misuse,
+        and N+1 queries. Skip pure style nitpicks; formatting is enforced by CI.
