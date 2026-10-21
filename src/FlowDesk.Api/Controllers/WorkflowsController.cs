@@ -18,7 +18,7 @@ public class WorkflowsController(AppDbContext db) : ControllerBase
     [Authorize(Policy = Policies.ManageWorkflows)]
     public async Task<IActionResult> Create(CreateWorkflowRequest req)
     {
-                if (string.IsNullOrWhiteSpace(req.Name) || req.Name.Length > 200)
+        if (string.IsNullOrWhiteSpace(req.Name) || req.Name.Length > 200)
             return Problem(title: "Name eka characters 1 ta 200 ta athara wenna one", statusCode: StatusCodes.Status400BadRequest);
         if (req.Definition.ValueKind != JsonValueKind.Object)
             return Problem(title: "'definition' eka JSON object ekak wenna one", statusCode: StatusCodes.Status400BadRequest);

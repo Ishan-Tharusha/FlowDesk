@@ -22,7 +22,7 @@ public class UsersController(AppDbContext db, IPasswordHasher hasher) : Controll
 
         if (!email.Contains('@'))
             return Problem(title: "Invalid email", statusCode: StatusCodes.Status400BadRequest);
-                if (req.Password.Length is < 8 or > 72)
+        if (req.Password.Length is < 8 or > 72)
             return Problem(title: "Password characters 8 ta 72 ta athara wenna one", statusCode: StatusCodes.Status400BadRequest);
         if (!Roles.All.Contains(req.Role))
             return Problem(title: $"Role eka weradi. Use: {string.Join(", ", Roles.All)}",

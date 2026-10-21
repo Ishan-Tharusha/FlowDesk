@@ -32,7 +32,7 @@ public class AuthController(
         var email = req.Email.Trim().ToLowerInvariant();
         var user = await db.Users.FirstOrDefaultAsync(u => u.Email == email);   // tenant filter auto
 
-                if (user is null)
+        if (user is null)
         {
             // user nathnath BCrypt time eka samanai wenna (email enumeration walakwanna)
             hasher.Verify(req.Password, _dummyHash ??= hasher.Hash("not-a-real-password"));
